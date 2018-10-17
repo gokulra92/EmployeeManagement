@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2018 at 02:26 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 5.6.34
+-- Generation Time: Oct 17, 2018 at 07:30 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,8 @@ CREATE TABLE `employeedetails` (
 --
 
 INSERT INTO `employeedetails` (`empId`, `empName`, `empEmail`, `empPswd`, `empDob`, `empGender`, `empImgPath`) VALUES
-(1, 'Gokul', 'gokul.ra92@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '1992-02-15', 1, '');
+(2, 'Gokul', 'gokul.ra92@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2018-10-17', 1, 'uploads/employee/153979497071417.jpg'),
+(3, 'Vaithiyanathan', 'vaithi.d@apaengineering.com', '6ba667f2e5fb6e2e9a9edd14f49a3d53', '2018-10-17', 1, 'uploads/employee/153979525553296.jpg');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `employeedetails`
 -- AUTO_INCREMENT for table `employeedetails`
 --
 ALTER TABLE `employeedetails`
-  MODIFY `empId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `empId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

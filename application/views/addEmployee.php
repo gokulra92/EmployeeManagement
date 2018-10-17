@@ -12,6 +12,9 @@
     </head>
     <body>
         <div class="container">
+            <div class="pull-right" style="margin-top: 10px;">
+                <a href="<?= base_url(); ?>Employee" class="btn btn-primary">Home</a>
+            </div>
             <h1>Enter Employee details</h1>
             <form method="post" action="<?= base_url();?>/Employee/addEmployee" autocomplete="off" enctype="multipart/form-data">
                 <div class="form-group">

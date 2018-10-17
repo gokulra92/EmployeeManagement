@@ -1,6 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+header('Access-Control-Allow-Origin: *');
 
 class Employee extends CI_Controller {
 
@@ -26,6 +27,10 @@ class Employee extends CI_Controller {
         $profileImage = isset($_FILES['profileImage']) ? $_FILES['profileImage'] : "";
         $data = [];
         if (!empty($name) && !empty($mail) && !empty($dob)) {
+            $isExist = $this->Employee_model->listData('employeedetails', array('empEmail' => $mail));
+            if (count($isExist) > 0) {
+                redirect('Employee/addEmployee', 'refresh');
+            }
             $data = array(
                 'empName' => $name,
                 'empEmail' => $mail,
@@ -49,12 +54,14 @@ class Employee extends CI_Controller {
         }
         $this->load->view('addEmployee');
     }
-    
+
     public function getEmployee() {
         $empId = $this->db->escape_str($this->input->post('id'));
         $where = array('empId' => $empId);
         $list = $this->Employee_model->listData('employeedetails', $where);
-        echo json_encode($list[0]);
+        if ($list) {
+            echo json_encode($list[0]);
+        }
     }
 
     public function deleteEmployee() {

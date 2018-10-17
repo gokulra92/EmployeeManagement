@@ -16,7 +16,11 @@ $result      = $conn->query($selectQuery);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $gender = ($row['empGender'] == 1) ? "his" : "her";
-        $message = getMailTemplate($row['empName'], $row['empDob'], $row['empImgPath'], $gender);
+        $img = $row['empImgPath'];
+        if (empty($row['empImgPath']) || !@getimagesize($img)) {
+            $img = './assets/default.jpg';
+        }
+        $message = getMailTemplate($row['empName'], $row['empDob'], $img, $gender);
         sendMailToEmployee($row['empEmail'], $row['empName'], $message);
     }
 }
