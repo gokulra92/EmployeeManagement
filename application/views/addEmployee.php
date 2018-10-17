@@ -16,27 +16,27 @@
             <form method="post" action="<?= base_url();?>/Employee/addEmployee" autocomplete="off" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="mail">Email:</label>
-                    <input type="mail" name="mail" class="form-control" id="mail">
+                    <input type="mail" name="mail" class="form-control" id="mail" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" class="form-control" id="password">
+                    <input type="password" name="password" class="form-control" id="password" required>
                 </div>
                 <div class="form-group">
                     <label for="rpassword">Re-type Password:</label>
-                    <input type="password" name="rpassword" class="form-control" id="rpassword">
+                    <input type="password" name="rpassword" class="form-control" id="rpassword" required>
                 </div>
                 <div class="form-group">
                     <label for="dob">Date of Birth:</label>
-                    <input type="date" name="dob" class="form-control" id="dob">
+                    <input type="date" name="dob" class="form-control" id="dob" required>
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <select name="gender" id="gender" class="form-control">
+                    <select name="gender" id="gender" class="form-control" required>
                         <option value="">Select Gender</option>
                         <option value="1">Male</option>
                         <option value="0">Female</option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label for="img">Profile Image:</label>
-                    <input type="file" name="profileImage" class="form-control" id="img">
+                    <input type="file" name="profileImage" class="form-control" id="img" required>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2018 at 07:52 AM
+-- Generation Time: Oct 17, 2018 at 02:26 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -43,8 +43,7 @@ CREATE TABLE `employeedetails` (
 --
 
 INSERT INTO `employeedetails` (`empId`, `empName`, `empEmail`, `empPswd`, `empDob`, `empGender`, `empImgPath`) VALUES
-(1, 'Gokul', 'gokul.ra92@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2018-10-16', 1, 'https://apaengineering.com/wp-content/uploads/2018/06/k-vaidyanathan-uai-258x289.jpg'),
-(2, 'Naga', 'gokulkiot@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2018-10-16', 1, 'https://apaengineering.com/wp-content/uploads/2018/06/k-vaidyanathan-uai-258x289.jpg');
+(1, 'Gokul', 'gokul.ra92@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '1992-02-15', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +63,7 @@ ALTER TABLE `employeedetails`
 -- AUTO_INCREMENT for table `employeedetails`
 --
 ALTER TABLE `employeedetails`
-  MODIFY `empId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `empId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

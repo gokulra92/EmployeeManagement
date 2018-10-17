@@ -22,30 +22,39 @@ class Employee extends CI_Controller {
         $rpassword = $this->db->escape_str($this->input->post('rpassword'));
         $dob = $this->db->escape_str($this->input->post('dob'));
         $gender = $this->db->escape_str($this->input->post('gender'));
+        $empId = !empty($this->input->post('empId')) ? $this->db->escape_str($this->input->post('empId')) : "";
         $profileImage = isset($_FILES['profileImage']) ? $_FILES['profileImage'] : "";
         $data = [];
-        if (!empty($name) && !empty($mail) && !empty($password) && !empty($dob)) {
+        if (!empty($name) && !empty($mail) && !empty($dob)) {
             $data = array(
                 'empName' => $name,
                 'empEmail' => $mail,
-                'empPswd' => $password,
+                'empPswd' => md5($password),
                 'empDob' => $dob,
-                'empGender' => $gender,
-                'empImgPath' => "",
+                'empGender' => $gender
             );
             if ($profileImage) {
                 $data['empImgPath'] = self::uploadImage($profileImage, 'uploads/employee/');
             }
-            $insert = $this->Employee_model->insertData('employeedetails', $data);
-            if ($insert) {
+            if ($empId) {
+                $result = $this->Employee_model->updateData('employeedetails', $data, array('empId' => $empId));
+            } else {
+                if ($password == $rpassword) {
+                    $result = $this->Employee_model->insertData('employeedetails', $data);
+                }
+            }
+            if ($result) {
                 redirect('Employee', 'refresh');
             }
         }
         $this->load->view('addEmployee');
     }
-
-    public function updateEmployee() {
-        
+    
+    public function getEmployee() {
+        $empId = $this->db->escape_str($this->input->post('id'));
+        $where = array('empId' => $empId);
+        $list = $this->Employee_model->listData('employeedetails', $where);
+        echo json_encode($list[0]);
     }
 
     public function deleteEmployee() {
